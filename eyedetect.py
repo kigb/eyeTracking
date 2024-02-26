@@ -59,12 +59,13 @@ while True:
         min_y = np.min(left_eye_region[:, 1])
         max_y = np.max(left_eye_region[:, 1])
         gray_eye = left_eye[min_y: max_y, min_x: max_x]
-        _, threshold_eye = cv2.threshold(gray_eye, 70, 255, cv2.THRESH_BINARY)
+        _, threshold_eye = cv2.threshold(gray_eye, 50, 255, cv2.THRESH_BINARY)
         threshold_eye = cv2.resize(threshold_eye, None, fx=5, fy=5)
         eye = cv2.resize(gray_eye, None, fx=5, fy=5)
-        cv2.imshow("Eye", eye)
+        # cv2.imshow("Eye", eye)
         cv2.imshow("Threshold", threshold_eye)
-        cv2.imshow("Left eye", left_eye)
+        
+        # cv2.imshow("Left eye", left_eye)
     #face vector<vector{float,float}> face[0]
     cv2.imshow("Frame", frame)
 
